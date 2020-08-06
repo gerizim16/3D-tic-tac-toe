@@ -9,8 +9,12 @@ function snake(sketch) {
     }
 
     function cameraOrbit(x, y, z, camera) {
-        // camera.camera(0, -30, 100);
-        camera.camera(y * 10, x * 10, 600, 0, 0, 0, 0, 1, 0);
+        sketch.angleMode(sketch.DEGREES);
+        sketch.rotateX(x);
+        sketch.rotateY(-y);
+        // sketch.rotateZ(z);
+        sketch.angleMode(sketch.RADIANS);
+        // camera.camera(y * 10, x * 10, 600, 0, 0, 0, 0, 1, 0);
         if (debug) {
             sketch.push();
             sketch.fill(0);
@@ -42,7 +46,7 @@ function snake(sketch) {
         sketch.textSize(11);
 
         if (debug) {
-            sketch.debugMode();
+            // sketch.debugMode();
         }
     };
 
@@ -54,6 +58,11 @@ function snake(sketch) {
 
         sketch.fill(255, 104, 94);
         sketch.box(85);
+        sketch.translate(0, 150, 0);
+        sketch.torus(40, 20);
+        sketch.translate(0, -350, 0);
+        sketch.sphere(70);
+        sketch.translate(0, 200, 0);
 
         if (debug) {
             // sketch.orbitControl();
