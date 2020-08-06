@@ -8,6 +8,12 @@ function snake(sketch) {
         white: [220, 220, 220],
     }
 
+    function cameraOrbit(x, y, z) {
+        
+    }
+
+    const debug = true;
+
     sketch.preload = function () {
     };
 
@@ -15,7 +21,10 @@ function snake(sketch) {
         let canvas = sketch.createCanvas(sketch.windowWidth, sketch.windowHeight);
         canvas.style('display', 'block');
         // sketch.frameRate(30);
-
+        
+        if (debug) {
+            sketch.debugMode();
+        }
     };
 
     sketch.draw = function () {
