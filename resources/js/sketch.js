@@ -15,17 +15,12 @@ function snake(sketch) {
         // sketch.rotateZ(z);
         sketch.angleMode(sketch.RADIANS);
         // camera.camera(y * 10, x * 10, 600, 0, 0, 0, 0, 1, 0);
-        if (debug) {
-            sketch.push();
-            sketch.fill(0);
-            sketch.text(`x: ${x}\ny: ${y}\nz: ${z}`, 0, -100);
-            sketch.pop();
-        }
     }
 
     const debug = true;
     let camera;
     let rotation;
+    let acceleration;
     let helvetica;
 
     sketch.preload = function () {
@@ -38,6 +33,7 @@ function snake(sketch) {
         // sketch.frameRate(30);
 
         rotation = {};
+        acceleration = {};
 
         camera = sketch.createCamera();
         sketch.setCamera(camera);
@@ -51,7 +47,8 @@ function snake(sketch) {
     };
 
     sketch.draw = function () {
-        [rotation.z, rotation.x, rotation.y] = [sketch.rotationZ, sketch.rotationX, sketch.rotationY]
+        [rotation.z, rotation.x, rotation.y] = [sketch.rotationZ, sketch.rotationX, sketch.rotationY];
+        [acceleration.x, acceleration.y, acceleration.z] = [sketch.accelerationX,sketch.accelerationY,sketch.accelerationZ];
 
         sketch.background(255);
         cameraOrbit(rotation.x, rotation.y, rotation.z, camera);
@@ -66,6 +63,15 @@ function snake(sketch) {
 
         if (debug) {
             // sketch.orbitControl();
+            sketch.push();
+            sketch.fill(0);
+            sketch.text(`x: ${Math.round(rotation.x)}\ny: ${Math.round(rotation.y)}\nz: ${Math.round(rotation.z)}`,
+                0, -100
+            );
+            sketch.text(`x: ${Math.round(acceleration.x)}\ny: ${Math.round(acceleration.y)}\nz: ${Math.round(acceleration.z)}`,
+                100, -100
+            );
+            sketch.pop();
         }
     };
 
