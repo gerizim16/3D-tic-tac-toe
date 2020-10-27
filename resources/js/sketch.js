@@ -68,7 +68,7 @@ function snake(sketch) {
             sketch.text(`x: ${Math.round(rotation.x)}\ny: ${Math.round(rotation.y)}\nz: ${Math.round(rotation.z)}`,
                 0, -100
             );
-            sketch.text(`x: ${Math.round(acceleration.x)}\ny: ${Math.round(acceleration.y)}\nz: ${Math.round(acceleration.z)}`,
+            sketch.text(`x: ${acceleration.x}\ny: ${acceleration.y}\nz: ${acceleration.z}`,
                 100, -100
             );
             sketch.pop();
